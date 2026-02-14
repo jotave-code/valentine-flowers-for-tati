@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+}
+
+.title {
+    font-size: 3rem;
+    color: #d63384;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in;
+    transition: all 0.5s ease-out;
+}
+
+.bouquet-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 1s ease-out;
+    height: 0;
+    overflow: hidden;
+}
+
+.bouquet-wrapper.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    height: auto;
+}
+
+.bouquet {
+    position: relative;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+.bouquet-image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #c2185b;
+    margin: 2rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+    height: 0;
+    overflow: hidden;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    height: auto;
+}
+
+.reveal-btn {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    animation: fadeIn 1.5s ease-in;
+}
+
+.reveal-btn:hover {
+    background: #c2185b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.hidden-message {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    color: #d63384;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.hidden-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden-message p {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .bouquet-image {
+        max-width: 400px;
+    }
+    
+    .message {
+        font-size: 1.2rem;
+    }
+    
+    .hidden-message {
+        font-size: 1.4rem;
+    }
+}
